@@ -29,12 +29,18 @@ namespace Negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    
                     //idMarca
+                    
+                    aux.marca = new Marca();
+                    aux.marca.ID = (int)datos.Lector["IdMarca"];
+                    aux.marca.Descripcion = (string)datos.Lector["Marca"];          // ES EL ALIAS DE LA COLUMNA EN LA CONSULTA 
+                    
                     //idCategoria
 
                     aux.categoria = new Categoria();
-                    aux.categoria.ID = (int)(datos.Lector["IdMarca"]);
-                    aux.categoria.Descripcion = (string)datos.Lector["Marca"];
+                    aux.categoria.ID = (int)(datos.Lector["IdCategoria"]);
+                    aux.categoria.Descripcion = (string)datos.Lector["Categoria"];  // ES EL ALIAS DE LA COLUMNA EN LA CONSULTA 
 
                     aux.precio = (decimal)datos.Lector["Precio"];
 
