@@ -22,7 +22,7 @@ namespace Vista
         private void listarToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmListar ventana = new frmListar();
-            ventana.Show();
+            ventana.ShowDialog();
         }
 
        
