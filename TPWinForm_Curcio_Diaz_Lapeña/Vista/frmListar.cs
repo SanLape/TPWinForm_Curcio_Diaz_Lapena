@@ -1,5 +1,5 @@
-﻿using Dominio;
-using Negocio;
+﻿using Negocio;
+using Dominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,15 +12,14 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Form1 : Form
+    public partial class frmListar : Form
     {
         private List<Articulo> listaArticulo;
-        public Form1()
+        public frmListar()
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
             ArticuloNegocio articulo = new ArticuloNegocio();
             listaArticulo = articulo.listar();
