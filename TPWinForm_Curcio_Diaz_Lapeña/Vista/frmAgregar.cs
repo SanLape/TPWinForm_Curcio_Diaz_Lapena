@@ -15,7 +15,7 @@ namespace Vista
     public partial class frmAgregar : Form
     {
         private Articulo articulo = null;
-        private OpenFileDialog archivo = null;
+        //private OpenFileDialog archivo = null;
         public frmAgregar()
         {
             InitializeComponent();

@@ -202,6 +202,7 @@
             // 
             // cmbMarca
             // 
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(207, 214);
             this.cmbMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -212,6 +213,7 @@
             // 
             // cboCategoria
             // 
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
             this.cboCategoria.Location = new System.Drawing.Point(207, 270);
             this.cboCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);

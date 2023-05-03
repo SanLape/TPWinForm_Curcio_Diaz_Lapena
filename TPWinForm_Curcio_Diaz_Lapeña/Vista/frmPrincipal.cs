@@ -14,7 +14,7 @@ namespace Vista
 {
     public partial class frmPrincipal : Form
     {
-        
+        private List<Articulo> listaArticulo;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace Vista
         private void listarToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmListar ventana = new frmListar();
-            ventana.Show();
+            ventana.ShowDialog();
         }
 
        
@@ -31,6 +31,13 @@ namespace Vista
         {
             frmAgregar ventana = new frmAgregar();
             ventana.ShowDialog();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            ArticuloNegocio articulo = new ArticuloNegocio();
+            listaArticulo = articulo.listar();
+            dgvArticulo.DataSource = listaArticulo;
         }
     }
 }
