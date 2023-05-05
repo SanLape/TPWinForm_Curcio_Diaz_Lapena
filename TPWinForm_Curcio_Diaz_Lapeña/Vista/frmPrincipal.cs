@@ -25,8 +25,6 @@ namespace Vista
             ventana.ShowDialog();
         }
 
-       
-
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAgregar ventana = new frmAgregar();
@@ -35,9 +33,41 @@ namespace Vista
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+
+            try
+            {
+                seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                negocio.eliminar(seleccionado.ID);
+                cargar();
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        private void cargar()
+        {
             ArticuloNegocio articulo = new ArticuloNegocio();
-            listaArticulo = articulo.listar();
-            dgvArticulo.DataSource = listaArticulo;
+            try
+            {
+                listaArticulo = articulo.listar();
+                dgvArticulo.DataSource = listaArticulo;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
