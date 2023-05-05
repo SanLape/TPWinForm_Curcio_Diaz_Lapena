@@ -43,10 +43,13 @@ namespace Vista
 
             try
             {
-                seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-                negocio.eliminar(seleccionado.ID);
-                cargar();
+                DialogResult respuesta = MessageBox.Show("CONFIRMAR", "ELIMINAR ARTICULO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 
+                if(respuesta == DialogResult.Yes) {
+                    seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.ID);
+                    cargar();
+                }
             }
             catch (Exception ex)
             {
