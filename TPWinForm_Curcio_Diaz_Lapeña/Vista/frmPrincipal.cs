@@ -34,6 +34,14 @@ namespace Vista
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cargar();
+            cboCampo.Items.Add("Codigo");
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Descripcion");
+
+            cboCrit.Items.Add("Comienza con");
+            cboCrit.Items.Add("Termina con ");
+            cboCrit.Items.Add("Contiene");
+
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,6 +89,57 @@ namespace Vista
             frmAgregar modificar = new frmAgregar(art);
             modificar.ShowDialog();
             cargar();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCrit.SelectedItem.ToString();
+
+                string filtro = txtFiltroAvanzado.Text;
+
+                dgvArticulo.DataSource = negocio.filtrar(campo, criterio, filtro);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+
+        }
+
+        private void lblBusqueda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+               
+
+           
+        }
+
+        private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Negocio
 {
@@ -117,6 +118,100 @@ namespace Negocio
                 throw ex;
             }
 
+        }
+
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
+        {
+            List <Articulo> lista = new List <Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion Marca, A.IdCategoria, C.Descripcion Categoria, A.Precio from ARTICULOS A, CATEGORIAS C, MARCAS M WHERE A.IdCategoria = C.Id AND  A.IdMarca = M.Id And";
+                if(campo == "Codigo")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Codigo like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "Codigo like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "Codigo like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else if (campo == "Nombre")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Nombre like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "Nombre like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "Nombre like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "P.Descripcion like '" + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta += "P.Descripcion like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "P.Descripcion like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                datos.setConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    //SE CREAO UN OBJETO AUXILIAR PARA CARGALO EN LA LECTURA Y SE AGRUEGA EN LA LSITA 
+
+                    Articulo aux = new Articulo();
+
+                    aux.ID = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    //idMarca
+
+                    aux.marca = new Marca();
+                    aux.marca.ID = (int)datos.Lector["IdMarca"];
+                    aux.marca.Descripcion = (string)datos.Lector["Marca"];          // ES EL ALIAS DE LA COLUMNA EN LA CONSULTA 
+
+                    //idCategoria
+
+                    aux.categoria = new Categoria();
+                    aux.categoria.ID = (int)(datos.Lector["IdCategoria"]);
+                    aux.categoria.Descripcion = (string)datos.Lector["Categoria"];  // ES EL ALIAS DE LA COLUMNA EN LA CONSULTA 
+
+                    aux.precio = (decimal)datos.Lector["Precio"];
+
+                    lista.Add(aux);
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

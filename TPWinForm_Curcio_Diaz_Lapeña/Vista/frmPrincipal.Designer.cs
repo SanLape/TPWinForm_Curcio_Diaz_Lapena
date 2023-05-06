@@ -36,8 +36,13 @@
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verDetalleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblBusqueda = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.dgvArticulo = new System.Windows.Forms.DataGridView();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.cboCrit = new System.Windows.Forms.ComboBox();
+            this.cboCriterio = new System.Windows.Forms.Label();
+            this.lblCampo = new System.Windows.Forms.Label();
+            this.cboCampo = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +54,7 @@
             this.busquedaPorCriteriosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1685, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1685, 38);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,85 +67,141 @@
             this.eliminarToolStripMenuItem,
             this.verDetalleToolStripMenuItem});
             this.busquedaPorCriteriosToolStripMenuItem.Name = "busquedaPorCriteriosToolStripMenuItem";
-            this.busquedaPorCriteriosToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
+            this.busquedaPorCriteriosToolStripMenuItem.Size = new System.Drawing.Size(81, 34);
             this.busquedaPorCriteriosToolStripMenuItem.Text = "Articulos";
             // 
             // listarToolStripMenuItem
             // 
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.listarToolStripMenuItem.Text = "Listar";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click_1);
             // 
             // agregarToolStripMenuItem
             // 
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.agregarToolStripMenuItem.Text = "Agregar";
             this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // verDetalleToolStripMenuItem
             // 
             this.verDetalleToolStripMenuItem.Name = "verDetalleToolStripMenuItem";
-            this.verDetalleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.verDetalleToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.verDetalleToolStripMenuItem.Text = "Ver detalle";
             // 
             // lblBusqueda
             // 
             this.lblBusqueda.AutoSize = true;
-            this.lblBusqueda.Location = new System.Drawing.Point(1380, 14);
+            this.lblBusqueda.Location = new System.Drawing.Point(1184, 7);
             this.lblBusqueda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBusqueda.Name = "lblBusqueda";
             this.lblBusqueda.Size = new System.Drawing.Size(69, 16);
             this.lblBusqueda.TabIndex = 2;
             this.lblBusqueda.Text = "Busqueda";
+            this.lblBusqueda.Click += new System.EventHandler(this.lblBusqueda_Click);
             // 
-            // textBox1
+            // txtFiltroAvanzado
             // 
-            this.textBox1.Location = new System.Drawing.Point(1475, 10);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtFiltroAvanzado.Location = new System.Drawing.Point(1261, 1);
+            this.txtFiltroAvanzado.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
+            this.txtFiltroAvanzado.Size = new System.Drawing.Size(171, 22);
+            this.txtFiltroAvanzado.TabIndex = 3;
+            this.txtFiltroAvanzado.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dgvArticulo
             // 
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulo.Location = new System.Drawing.Point(20, 65);
-            this.dgvArticulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvArticulo.Margin = new System.Windows.Forms.Padding(4);
             this.dgvArticulo.MultiSelect = false;
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.RowHeadersWidth = 51;
             this.dgvArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulo.Size = new System.Drawing.Size(1272, 672);
             this.dgvArticulo.TabIndex = 4;
+            this.dgvArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulo_CellContentClick);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(1439, 0);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(65, 25);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // cboCrit
+            // 
+            this.cboCrit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCrit.FormattingEnabled = true;
+            this.cboCrit.Location = new System.Drawing.Point(1007, 0);
+            this.cboCrit.Name = "cboCrit";
+            this.cboCrit.Size = new System.Drawing.Size(121, 24);
+            this.cboCrit.TabIndex = 6;
+            this.cboCrit.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // cboCriterio
+            // 
+            this.cboCriterio.AutoSize = true;
+            this.cboCriterio.Location = new System.Drawing.Point(940, 8);
+            this.cboCriterio.Name = "cboCriterio";
+            this.cboCriterio.Size = new System.Drawing.Size(49, 16);
+            this.cboCriterio.TabIndex = 7;
+            this.cboCriterio.Text = "Criterio";
+            // 
+            // lblCampo
+            // 
+            this.lblCampo.AutoSize = true;
+            this.lblCampo.Location = new System.Drawing.Point(687, 5);
+            this.lblCampo.Name = "lblCampo";
+            this.lblCampo.Size = new System.Drawing.Size(51, 16);
+            this.lblCampo.TabIndex = 8;
+            this.lblCampo.Text = "Campo";
+            // 
+            // cboCampo
+            // 
+            this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCampo.FormattingEnabled = true;
+            this.cboCampo.Location = new System.Drawing.Point(757, 1);
+            this.cboCampo.Name = "cboCampo";
+            this.cboCampo.Size = new System.Drawing.Size(121, 24);
+            this.cboCampo.TabIndex = 9;
+            this.cboCampo.SelectedIndexChanged += new System.EventHandler(this.cboCampo_SelectedIndexChanged);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1685, 815);
+            this.ClientSize = new System.Drawing.Size(1348, 652);
+            this.Controls.Add(this.cboCampo);
+            this.Controls.Add(this.lblCampo);
+            this.Controls.Add(this.cboCriterio);
+            this.Controls.Add(this.cboCrit);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dgvArticulo);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFiltroAvanzado);
             this.Controls.Add(this.lblBusqueda);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPrincipal";
             this.Text = "frmPrincipal";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
@@ -161,8 +222,13 @@
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verDetalleToolStripMenuItem;
         private System.Windows.Forms.Label lblBusqueda;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.DataGridView dgvArticulo;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.ComboBox cboCrit;
+        private System.Windows.Forms.Label cboCriterio;
+        private System.Windows.Forms.Label lblCampo;
+        private System.Windows.Forms.ComboBox cboCampo;
     }
 }
 
