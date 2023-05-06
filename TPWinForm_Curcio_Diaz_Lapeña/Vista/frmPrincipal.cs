@@ -72,5 +72,15 @@ namespace Vista
                 throw ex;
             }
         }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Articulo art;
+            art = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+
+            frmAgregar modificar = new frmAgregar(art);
+            modificar.ShowDialog();
+            cargar();
+        }
     }
 }
