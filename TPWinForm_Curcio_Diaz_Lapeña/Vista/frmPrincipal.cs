@@ -98,6 +98,7 @@ namespace Vista
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            /*
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
@@ -114,6 +115,7 @@ namespace Vista
 
                 MessageBox.Show(ex.ToString());
             }
+            */
             
 
         }
