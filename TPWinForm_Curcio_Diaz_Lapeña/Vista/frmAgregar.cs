@@ -44,6 +44,7 @@ namespace Vista
                 articulo.Descripcion = txtDescripcion.Text;
                 articulo.marca = (Marca) cmbMarca.SelectedItem;
                 articulo.categoria = (Categoria) cboCategoria.SelectedItem;
+                articulo.precio = decimal.Parse(txtPrecio.Text);
 
                 if(articulo.ID != 0)
                 {
