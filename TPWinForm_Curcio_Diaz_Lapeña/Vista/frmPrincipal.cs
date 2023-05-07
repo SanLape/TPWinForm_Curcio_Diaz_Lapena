@@ -73,6 +73,8 @@ namespace Vista
             {
                 listaArticulo = articulo.listar();
                 dgvArticulo.DataSource = listaArticulo;
+                dgvArticulo.Columns["ID"].Visible = false;
+                dgvArticulo.Columns["ImagenURL"].Visible = false;
 
             }
             catch (Exception ex)

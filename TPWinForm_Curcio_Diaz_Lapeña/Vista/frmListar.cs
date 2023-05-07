@@ -24,6 +24,8 @@ namespace Vista
             ArticuloNegocio articulo = new ArticuloNegocio();
             listaArticulo = articulo.listar();
             dgvArticulo.DataSource = listaArticulo;
+            dgvArticulo.Columns["ID"].Visible = false;
+            dgvArticulo.Columns["ImagenURL"].Visible = false;
         }
     }
 }
