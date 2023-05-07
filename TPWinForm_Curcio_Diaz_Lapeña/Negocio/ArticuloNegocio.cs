@@ -119,7 +119,7 @@ namespace Negocio
             }
 
         }
-        /*
+        
         public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {
             List <Articulo> lista = new List <Articulo>();
@@ -127,19 +127,19 @@ namespace Negocio
 
             try
             {
-                string consulta = "select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion Marca, A.IdCategoria, C.Descripcion Categoria, A.Precio from ARTICULOS A, CATEGORIAS C, MARCAS M WHERE A.IdCategoria = C.Id AND  A.IdMarca = M.Id And";
+                string consulta = "select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion Marca, A.IdCategoria, C.Descripcion Categoria, A.Precio from ARTICULOS A, CATEGORIAS C, MARCAS M WHERE A.IdCategoria = C.Id AND  A.IdMarca = M.Id And ";
                 if(campo == "Codigo")
                 {
                     switch (criterio)
                     {
                         case "Comienza con":
-                            consulta += "Codigo like '" + filtro + "%' ";
+                            consulta += "A.Codigo like '" + filtro + "%' ";
                             break;
                         case "Termina con":
-                            consulta += "Codigo like '%" + filtro + "'";
+                            consulta += "A.Codigo like '%" + filtro + "'";
                             break;
                         default:
-                            consulta += "Codigo like '%" + filtro + "%'";
+                            consulta += "A.Codigo like '%" + filtro + "%'";
                             break;
                     }
                 }
@@ -148,13 +148,13 @@ namespace Negocio
                     switch (criterio)
                     {
                         case "Comienza con":
-                            consulta += "Nombre like '" + filtro + "%' ";
+                            consulta += "A.Nombre like '" + filtro + "%' ";
                             break;
                         case "Termina con":
-                            consulta += "Nombre like '%" + filtro + "'";
+                            consulta += "A.Nombre like '%" + filtro + "'";
                             break;
                         default:
-                            consulta += "Nombre like '%" + filtro + "%'";
+                            consulta += "A.Nombre like '%" + filtro + "%'";
                             break;
                     }
                 }
@@ -163,13 +163,13 @@ namespace Negocio
                     switch (criterio)
                     {
                         case "Comienza con":
-                            consulta += "P.Descripcion like '" + filtro + "%' ";
+                            consulta += "A.Descripcion like '" + filtro + "%' ";
                             break;
                         case "Termina con":
-                            consulta += "P.Descripcion like '%" + filtro + "'";
+                            consulta += "A.Descripcion like '%" + filtro + "'";
                             break;
                         default:
-                            consulta += "P.Descripcion like '%" + filtro + "%'";
+                            consulta += "A.Descripcion like '%" + filtro + "%'";
                             break;
                     }
                 }
@@ -202,17 +202,13 @@ namespace Negocio
 
                     lista.Add(aux);
                 }
-
-
-
-
+                return lista;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
-        */
+        
     }
 }

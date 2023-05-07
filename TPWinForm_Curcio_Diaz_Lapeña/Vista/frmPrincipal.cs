@@ -40,7 +40,7 @@ namespace Vista
             cboCampo.Items.Add("Descripcion");
 
             cboCrit.Items.Add("Comienza con");
-            cboCrit.Items.Add("Termina con ");
+            cboCrit.Items.Add("Termina con");
             cboCrit.Items.Add("Contiene");
 
         }
@@ -101,7 +101,7 @@ namespace Vista
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            /*
+            
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
@@ -118,9 +118,6 @@ namespace Vista
 
                 MessageBox.Show(ex.ToString());
             }
-            */
-            
-
         }
 
         private void lblBusqueda_Click(object sender, EventArgs e)
