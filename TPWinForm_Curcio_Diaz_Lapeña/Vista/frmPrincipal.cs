@@ -18,6 +18,7 @@ namespace Vista
         public frmPrincipal()
         {
             InitializeComponent();
+            cargar();
         }
         private void listarToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
